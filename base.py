@@ -1,4 +1,5 @@
 import requests
+import json
 from patient import create_patient_resource
 
 
@@ -31,4 +32,30 @@ def get_resource_from_hapi_fhir(resource_id, resource_type):
     else:
         print(f"Error al obtener el recurso: {response.status_code}")
         print(response.json())
+
+# Buscar recurso por DNI
+def buscar_paciente_por_dni(dni, system_url):
+
+    # Armamos la query: GET /Patient?identifier=system|value
+    url = f"https://hapi.fhir.org/baseR4/Patient?identifier={system_url}|{dni}"
+    response = requests.get(url, headers={"Accept": "application/fhir+json"})
+
+    print(f"➡ Buscando paciente con DNI: {dni} ...")
+
+    if response.status_code != 200:
+        print(f"Error en la búsqueda ({response.status_code})")
+        print(response.json())
+        return None
+    resultado = response.json()
+    if "entry" not in resultado:
+        print(f"No se encontraron pacientes con DNI {dni}.")
+        return None
+    print(f"Se encontraron {len(resultado['entry'])} paciente(s):\n")
+    pacientes = []
+    for item in resultado["entry"]:
+        paciente = item["resource"]
+        pacientes.append(paciente)
+        print(json.dumps(paciente, indent=4))
+
+    return pacientes
 

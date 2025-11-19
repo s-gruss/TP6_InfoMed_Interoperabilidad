@@ -4,4 +4,4 @@ Grupo 3:
 - Santiago Gruss
 - Juan Agustín Martinez Haart
 
-En el archivo "ej_3c.py" se encunetra la resolución al ejercicio asignado a nuestro grupo.
+En el archivo "ej_3c.py" se encuentra la resolución al ejercicio asignado a nuestro grupo.

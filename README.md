@@ -1,8 +1,5 @@
-## Patient
-Creación del recurso paciente con algunos parámetros. 
+# Trabajo Práctico Número 6: Interoperabilidad - Informática Médica
 
-## Base 
-Lectura y escritura de recursos en el servidor público de HAPI FHIR. 
-
-## Workflow
-Desde acá se corre el código. 
+Grupo 3:
+- Santiago Gruss
+- Juan Agustín Martinez Haart
